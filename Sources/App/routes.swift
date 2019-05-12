@@ -48,7 +48,7 @@ public func routes(_ router: Router) throws {
 //            return db
 //                .raw("SELECT * From House WHERE name LIKE '%\(aname)%' OR address LIKE '%\(aname)%'").sort(\.name, .descending).all(decoding: House.self)
             return db
-                .raw("SELECT * From House WHERE name LIKE '%\(queryname)%' OR address LIKE '%\(queryname)%' ORDER BY dateStr DESC").all(decoding: House.self)
+                .raw("SELECT * From vapor WHERE name LIKE '%\(queryname)%' OR address LIKE '%\(queryname)%' ORDER BY dateStr DESC").all(decoding: House.self)
         })
     }
 }
