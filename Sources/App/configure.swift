@@ -54,6 +54,8 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     databases.add(database: database, as: .psql)
     services.register(databases)
 
+    config.prefer(DictionaryKeyedCache.self, for: KeyedCache.self)
+
     
     // Configure migrations
     var migrations = MigrationConfig()
