@@ -47,7 +47,7 @@ public func routes(_ router: Router) throws {
         return req.withPooledConnection(to: .psql, closure: { (db) -> Future<[House]> in
 
             return db
-                .raw("SELECT * From \"House\" WHERE name LIKE '%\(queryname)%' OR address LIKE '%\(queryname)%' ORDER BY dateStr DESC").all(decoding: House.self)
+                .raw("SELECT * From \"House\" WHERE name LIKE '%\(queryname)%' OR address LIKE '%\(queryname)%' ORDER BY \"dateStr\" DESC").all(decoding: House.self)
         })
     }
 }
