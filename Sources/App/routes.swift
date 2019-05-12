@@ -29,7 +29,7 @@ public func routes(_ router: Router) throws {
         }
         
         let cityName = try req.parameters.next(String.self).removingPercentEncoding
-        return House.query(on: req).filter(\.cityName == cityName).all()
+        return House.query(on: req).filter(\.cityName == cityName).sort(\.dateStr, .descending).all()
     }
     
     router.get("query", String.parameter) { req  -> Future<[House]> in
